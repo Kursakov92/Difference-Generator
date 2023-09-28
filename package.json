@@ -1,0 +1,24 @@
+{
+  "name": "@hexlet/code",
+  "type": "module",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/Kursakov92/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/Kursakov92/frontend-project-46/actions)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^11.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.28.1"
+  }
+}
