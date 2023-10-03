@@ -1,19 +1,20 @@
 {
   "name": "@hexlet/code",
   "type": "module",
+  "main": "src/index.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/Kursakov92/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/Kursakov92/frontend-project-46/actions)",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^11.0.0"
+    "commander": "^11.0.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "eslint": "^8.50.0",
