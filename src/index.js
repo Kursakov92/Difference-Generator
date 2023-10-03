@@ -7,10 +7,23 @@ function parsing(pathToFile) {
   return JSON.parse(fileContent);
 }
 function diff(obj1, obj2) {
+  let result = '';
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
   const sortKeys = keys1.concat(keys2).sort();
-  console.log(sortKeys);
+  const uniqKeys = _.uniq(sortKeys);
+  for (const key of uniqKeys) {
+    if (Object.hasOwn(obj1, key) && Object.hasOwn(obj2, key)) {
+      result += obj1[key] === obj2[key] ? `\n    ${key}: ${obj1[key]}` : `\n -  ${key}: ${obj1[key]}\n +  ${key}: ${obj2[key]}`;
+    }
+    if (Object.hasOwn(obj1, key) && !Object.hasOwn(obj2, key)) {
+      result += `\n -  ${key}: ${obj1[key]}`;
+    }
+    if (!Object.hasOwn(obj1, key) && Object.hasOwn(obj2, key)) {
+      result += `\n +  ${key}: ${obj2[key]}`;
+    }
+  }
+  console.log(`{${result}\n}`);
 }
 
 export default function gendiff(file1, file2) {
