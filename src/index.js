@@ -2,8 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 
-// xxx
-
 function parsing(pathToFile) {
   const fileContent = fs.readFileSync(pathToFile, 'utf-8');
   return JSON.parse(fileContent);
