@@ -6,4 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: my-step
-        run: make say-hello
+        run: make lint
