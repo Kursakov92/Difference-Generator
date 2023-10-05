@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
-      - name: my-step
-        run: make lint
+      - run: make install
+      - run: make lint
