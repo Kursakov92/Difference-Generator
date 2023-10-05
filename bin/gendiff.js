@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-import gendiff from '../src/index.js';
+import gendiff from '../src/index';
 
 program
   .description('Compares two configuration files and shows a difference.')
