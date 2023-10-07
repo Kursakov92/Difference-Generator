@@ -29,8 +29,8 @@ function diff(obj1, obj2) {
 }
 
 export default function gendiff(file1, file2) {
-  const path1 = path.resolve(process.cwd(), 'src', file1);
-  const path2 = path.resolve(process.cwd(), 'src', file2);
+  const path1 = path.resolve(process.cwd(), '__fixtures__', file1);
+  const path2 = path.resolve(process.cwd(), '__fixtures__', file2);
   const jsonFile1 = parsing(path1);
   const jsonFile2 = parsing(path2);
   console.log(diff(jsonFile1, jsonFile2));
