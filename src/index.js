@@ -16,13 +16,13 @@ function diff(obj1, obj2) {
 
   uniqKeys.forEach((key) => {
     if (Object.hasOwn(obj1, key) && Object.hasOwn(obj2, key)) {
-      result += obj1[key] === obj2[key] ? `\n    ${key}: ${obj1[key]}` : `\n -  ${key}: ${obj1[key]}\n +  ${key}: ${obj2[key]}`;
+      result += obj1[key] === obj2[key] ? `\n    ${key}: ${obj1[key]}` : `\n  -  ${key}: ${obj1[key]}\n  +  ${key}: ${obj2[key]}`;
     }
     if (Object.hasOwn(obj1, key) && !Object.hasOwn(obj2, key)) {
-      result += `\n -  ${key}: ${obj1[key]}`;
+      result += `\n  -  ${key}: ${obj1[key]}`;
     }
     if (!Object.hasOwn(obj1, key) && Object.hasOwn(obj2, key)) {
-      result += `\n +  ${key}: ${obj2[key]}`;
+      result += `\n  +  ${key}: ${obj2[key]}`;
     }
   });
   return `{${result}\n}`;
@@ -33,5 +33,5 @@ export default function gendiff(file1, file2) {
   const path2 = path.resolve(process.cwd(), '__fixtures__', file2);
   const jsonFile1 = parsing(path1);
   const jsonFile2 = parsing(path2);
-  console.log(diff(jsonFile1, jsonFile2));
+  return diff(jsonFile1, jsonFile2);
 }
