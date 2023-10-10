@@ -1,6 +1,6 @@
 import path from 'path';
 import _ from 'lodash';
-import parsing from './parser';
+import parsing from './parser.js';
 
 function diff(obj1, obj2) {
   let result = '';

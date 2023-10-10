@@ -10,8 +10,8 @@ export default function parsing(pathToFile) {
     result = JSON.parse(fileContent);
   }
   if (format === '.yml' || format === '.yaml') {
-    const fileContent = yaml.load(fs.readFileSync(pathToFile, 'utf-8'));
-    result = yaml.safeLoad(fileContent);
+    const fileContent = fs.readFileSync(pathToFile, 'utf-8');
+    result = yaml.load(fileContent);
   }
   return result;
 }
