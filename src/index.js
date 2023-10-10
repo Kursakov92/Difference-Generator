@@ -1,11 +1,6 @@
-import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
-
-function parsing(pathToFile) {
-  const fileContent = fs.readFileSync(pathToFile, 'utf-8');
-  return JSON.parse(fileContent);
-}
+import parsing from './parser';
 
 function diff(obj1, obj2) {
   let result = '';
@@ -31,7 +26,7 @@ function diff(obj1, obj2) {
 export default function gendiff(file1, file2) {
   const path1 = path.resolve(process.cwd(), '__fixtures__', file1);
   const path2 = path.resolve(process.cwd(), '__fixtures__', file2);
-  const jsonFile1 = parsing(path1);
-  const jsonFile2 = parsing(path2);
-  return diff(jsonFile1, jsonFile2);
+  const parseFile1 = parsing(path1);
+  const parseFile2 = parsing(path2);
+  return diff(parseFile1, parseFile2);
 }
