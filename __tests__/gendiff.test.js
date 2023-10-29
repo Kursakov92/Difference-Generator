@@ -6,21 +6,14 @@ import gendiff from '../src';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
-test('testJSON', () => {
-  const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-  const res = fs.readFileSync(getFixturePath('recursionResult.txt'), 'utf-8');
-  const fl1 = getFixturePath('recursionFile1.json');
-  const fl2 = getFixturePath('recursionFile2.json');
-  const result = gendiff(fl1, fl2);
-  expect(res).toEqual(result);
+test('Stylish gendiff', () => {
+  expect(gendiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'stylish')).toEqual(fs.readFileSync(getFixturePath('stylish-result.txt'), 'utf-8'));
+  expect(gendiff(getFixturePath('file1.yaml'), getFixturePath('file2.yaml'), 'stylish')).toEqual(fs.readFileSync(getFixturePath('stylish-result.txt'), 'utf-8'));
 });
 
-test('testYAML', () => {
-  const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-  const res = fs.readFileSync(getFixturePath('recursionResult.txt'), 'utf-8');
-  const fl1 = getFixturePath('recursionFile1.yaml');
-  const fl2 = getFixturePath('recursionFile2.yaml');
-  const result = gendiff(fl1, fl2);
-  expect(res).toEqual(result);
+test('Plain gendiff', () => {
+  expect(gendiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toEqual(fs.readFileSync(getFixturePath('plain-result.txt'), 'utf-8'));
+  expect(gendiff(getFixturePath('file1.yaml'), getFixturePath('file2.yaml'), 'plain')).toEqual(fs.readFileSync(getFixturePath('plain-result.txt'), 'utf-8'));
 });
