@@ -7,20 +7,20 @@ import gendiff from '../src';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-test('flatTestJSON', () => {
+test('testJSON', () => {
   const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-  const res = fs.readFileSync(getFixturePath('flatResult.txt'), 'utf-8');
-  const fl1 = getFixturePath('file1.json');
-  const fl2 = getFixturePath('file2.json');
+  const res = fs.readFileSync(getFixturePath('recursionResult.txt'), 'utf-8');
+  const fl1 = getFixturePath('recursionFile1.json');
+  const fl2 = getFixturePath('recursionFile2.json');
   const result = gendiff(fl1, fl2);
   expect(res).toEqual(result);
 });
 
-test('flatTestYAML', () => {
+test('testYAML', () => {
   const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-  const res = fs.readFileSync(getFixturePath('flatResult.txt'), 'utf-8');
-  const fl1 = getFixturePath('file1.yaml');
-  const fl2 = getFixturePath('file2.yaml');
+  const res = fs.readFileSync(getFixturePath('recursionResult.txt'), 'utf-8');
+  const fl1 = getFixturePath('recursionFile1.yaml');
+  const fl2 = getFixturePath('recursionFile2.yaml');
   const result = gendiff(fl1, fl2);
   expect(res).toEqual(result);
 });
