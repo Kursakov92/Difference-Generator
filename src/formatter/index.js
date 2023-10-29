@@ -1,21 +1,16 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
+import json from './json.js';
 
-const doFormat = (formatterName, tree) => {
-  let result;
-
+export default function doFormat(formatterName, tree) {
   switch (formatterName) {
     case 'stylish':
-      result = stylish(tree, '  ');
-      break;
+      return stylish(tree, '  ');
     case 'plain':
-      result = plain(tree, '  ');
-      break;
+      return plain(tree, '  ');
+    case 'json':
+      return json(tree, '  ');
     default:
-      console.error(`Unknown formatter: "${formatterName}"`);
+      return console.error(`Unknown formatter: "${formatterName}"`);
   }
-
-  return result;
-};
-
-export default doFormat;
+}

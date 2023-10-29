@@ -17,3 +17,8 @@ test('Plain gendiff', () => {
   expect(gendiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toEqual(fs.readFileSync(getFixturePath('plain-result.txt'), 'utf-8'));
   expect(gendiff(getFixturePath('file1.yaml'), getFixturePath('file2.yaml'), 'plain')).toEqual(fs.readFileSync(getFixturePath('plain-result.txt'), 'utf-8'));
 });
+
+test('JSON gendiff', () => {
+  expect(gendiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json')).toEqual(fs.readFileSync(getFixturePath('json-result.txt'), 'utf-8'));
+  expect(gendiff(getFixturePath('file1.yaml'), getFixturePath('file2.yaml'), 'json')).toEqual(fs.readFileSync(getFixturePath('json-result.txt'), 'utf-8'));
+});
