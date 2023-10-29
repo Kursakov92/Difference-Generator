@@ -3,8 +3,7 @@ import _ from 'lodash';
 export default function diff(obj1, obj2) {
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
-  const sortKeys = keys1.concat(keys2).sort();
-  const uniqKeys = _.uniq(sortKeys);
+  const uniqKeys = _.sortBy(_.union(keys1, keys2));
 
   const diffArr = uniqKeys.map((key) => {
     if (Object.hasOwn(obj1, key) && Object.hasOwn(obj2, key)) {
