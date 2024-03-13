@@ -5,15 +5,15 @@
 
 ![my badge](https://github.com/Kursakov92/frontend-project-46/actions/workflows/gendiff-check.yml/badge.svg)
 
-Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. 
+Gendiff is a program that determines the difference between two data structures.
 
-Возможности утилиты:
+Utility features:
 
-- Поддержка разных входных форматов: yaml, json
-- Генерация отчета в виде plain text, stylish и json
+- Support for different input formats: yaml, json
+- Report generation in the form of plain text, stylish and json
 
 
-## Установка
+## Installation
 
 ```sh
 $ git clone git@github.com:kpako3rbp/frontend-project-lvl2.git
@@ -22,11 +22,10 @@ $ make install
 $ nmp link
 ```
 
-## Быстрый старт
+## Quick Start
 
-### Вывод справки
-
-Используйте флаг -h или --help для вызова справки
+### Help
+Use -h or --help flag for help
 
 ```sh
 $ gendiff --help
@@ -41,10 +40,11 @@ Options:
   -f, --format <type>  output format (default: "stylish")
   -h, --help           display help for command
 ```
-### Использование 
-Используйте флаг -f или --format для выбора необходимого форматтера. По умолчанию используется "stylish". Далее укажите пути к сравниваемым файлам. Программа умеет работать как с относительными, так и абсолютными путями.
 
-## Формат вывода 'stylish'
+### Usage
+Use -f or --format flag to select the required formatter. "Stylish" set as default formatter. Next, specify the paths to the compared files. The program can work with relative and absolute paths.
+
+## Output format 'stylish'
 
 ```sh
 $ gendiff file1.json file2.json
@@ -52,7 +52,7 @@ $ gendiff file1.yml file2.yaml
 ```
 [![asciicast](https://asciinema.org/a/O8ztcXJhrjtejBcG0BPYfuWKz.svg)](https://asciinema.org/a/O8ztcXJhrjtejBcG0BPYfuWKz) 
 
-## Формат вывода 'plain'
+## Output format 'plain'
 
 ```sh
 $ gendiff -f plain file1.json file2.json
@@ -60,7 +60,7 @@ $ gendiff -f plain file1.yml file2.yaml
 ```
 [![asciicast](https://asciinema.org/a/1XV0xd0bHv3gdwQdIUpf6I3SF.svg)](https://asciinema.org/a/1XV0xd0bHv3gdwQdIUpf6I3SF)
 
-## Формат вывода 'json'
+## Output format 'json'
 
 ```sh
 $ gendiff -f json file1.json file2.json
